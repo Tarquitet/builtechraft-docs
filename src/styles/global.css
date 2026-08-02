@@ -16,7 +16,10 @@
   --sl-color-bg-nav: #1c1a18;
   --sl-color-bg-sidebar: #1c1a18;
 }
-/* Forzar que las listas se vean (Tailwind las oculta por defecto) */
+
+/* =========================================
+   1. ARREGLAR LISTAS (Tailwind las oculta)
+   ========================================= */
 .sl-markdown-content ul {
   list-style-type: disc !important;
   padding-left: 1.5rem !important;
@@ -31,4 +34,89 @@
 
 .sl-markdown-content li {
   margin-top: 0.5rem !important;
+}
+
+/* =========================================
+   2. ACORDEONES ESTILO GITBOOK (<details>)
+   ========================================= */
+.sl-markdown-content details {
+  border: 1px solid #3f3a36; /* Borde sutil oscuro */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  margin-bottom: 1rem;
+  background-color: #2a2725; /* Fondo ligeramente más claro que el sidebar */
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.sl-markdown-content details:hover {
+  border-color: #f97316; /* Borde naranja al pasar el mouse */
+}
+
+.sl-markdown-content details summary {
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none; /* Oculta la flecha por defecto del navegador */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffedd5; /* Texto claro/naranja suave */
+  user-select: none;
+}
+
+/* Oculta la flecha por defecto en Safari/Chrome */
+.sl-markdown-content details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Flecha personalizada naranja */
+.sl-markdown-content details summary::after {
+  content: '›';
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+  color: #f97316; /* Naranja */
+  line-height: 1;
+}
+
+/* Rota la flecha cuando está abierto */
+.sl-markdown-content details[open] summary::after {
+  transform: rotate(90deg);
+}
+
+/* Estilo del contenido interno del acordeón */
+.sl-markdown-content details > div {
+  padding: 0 1rem 1rem 1rem;
+  color: #d6d3d1; /* Texto gris claro para el contenido */
+  border-top: 1px solid #3f3a36; /* Línea separadora */
+  padding-top: 1rem;
+}
+
+/* =========================================
+   3. HEADER NARANJA SÓLIDO (Opcional)
+   ========================================= */
+/* Si quieres que la barra superior sea naranja sólida como en GitBook */
+header {
+  background-color: #f97316 !important;
+  border-bottom: none !important;
+}
+
+header a,
+header button,
+header .site-title {
+  color: white !important;
+}
+
+/* =========================================
+   4. ENLACES INTERNOS
+   ========================================= */
+.sl-markdown-content a {
+  color: #f97316;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sl-markdown-content a:hover {
+  color: #ffedd5;
+  text-decoration: underline;
 }
