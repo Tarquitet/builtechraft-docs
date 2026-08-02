@@ -25,8 +25,8 @@ export default defineConfig({
         {
           label: '01. GUÍAS',
           items: [
-            { label: '1. ¿Qué es Builtechraft?', slug: '01-guias/01-que-es-builtechraft' },
-            { label: '2. Nuestro Discord', slug: '01-guias/02-nuestro-discord' },
+            { label: '1. ¿Qué es Builtechraft?', slug: '01-guias/01-que-es-builtechraft' }, //LISTO
+            { label: '2. Nuestro Discord', slug: '01-guias/02-nuestro-discord' }, //LISTO
             {
               label: '3. Cómo unirse al servidor',
               items: [
@@ -35,8 +35,8 @@ export default defineConfig({
                 { label: '3.2. Bedrock', slug: '01-guias/03-como-unirse-al-servidor/03-2-bedrock' },
               ],
             },
-            { label: '4. Acceso a la Whitelist', slug: '01-guias/04-acceso-a-la-whitelist' },
-            { label: '5. Registro en el servidor', slug: '01-guias/05-registro-en-el-servidor' },
+            { label: '4. Acceso a la Whitelist', slug: '01-guias/04-acceso-a-la-whitelist' }, //LISTO
+            { label: '5. Registro en el servidor', slug: '01-guias/05-registro-en-el-servidor' }, //LISTO
           ],
         },
         {
@@ -73,7 +73,7 @@ export default defineConfig({
               label: '2. Paquete de mods y optimizaciones',
               items: [
                 { label: '2.1. Mods permitidos', slug: '04-soporte/02-paquete-de-mods/01-permitidos' },
-                { label: '2.2. Mods prohibidos y sanciones', slug: '04-soporte/02-paquete-de-mods/02-prohibidos' },
+                { label: '2.2. Mods prohibidos', slug: '04-soporte/02-paquete-de-mods/02-prohibidos' },
                 {
                   label: '2.3. Instalación y configuración segura',
                   slug: '04-soporte/02-paquete-de-mods/03-instalacion',
