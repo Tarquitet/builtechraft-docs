@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+
+:root {
+  /* Acentos naranjas */
+  --sl-color-accent-low: #4a1d04;
+  --sl-color-accent: #f97316;
+  --sl-color-accent-high: #ffedd5;
+
+  /* Textos */
+  --sl-color-text-accent: #ea580c;
+}
+
+/* Colores específicos para el modo oscuro (fondo estilo GitBook) */
+:root[data-theme='dark'] {
+  --sl-color-bg: #23211f;
+  --sl-color-bg-nav: #1c1a18;
+  --sl-color-bg-sidebar: #1c1a18;
+}
