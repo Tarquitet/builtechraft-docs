@@ -30,9 +30,9 @@ export default defineConfig({
             {
               label: '3. Cómo unirse al servidor',
               items: [
-                { label: '3.0. Como Unirse', slug: '01-guias/03-como-unirse-al-servidor/03-0-como-hacerlo' },
-                { label: '3.1. Java', slug: '01-guias/03-como-unirse-al-servidor/03-1-java' },
-                { label: '3.2. Bedrock', slug: '01-guias/03-como-unirse-al-servidor/03-2-bedrock' },
+                { label: '3.0. Como Unirse', slug: '01-guias/03-como-unirse-al-servidor/03-0-como-hacerlo' }, //LISTO
+                { label: '3.1. Java', slug: '01-guias/03-como-unirse-al-servidor/03-1-java' }, //LISTO
+                { label: '3.2. Bedrock', slug: '01-guias/03-como-unirse-al-servidor/03-2-bedrock' }, //LISTO
               ],
             },
             { label: '4. Acceso a la Whitelist', slug: '01-guias/04-acceso-a-la-whitelist' }, //LISTO
@@ -63,20 +63,22 @@ export default defineConfig({
             {
               label: '1. Sobre Launchers',
               items: [
-                { label: '1.1. Launcher para no premium', slug: '04-soporte/01-sobre-launchers/01-no-premium' },
-                { label: '1.2. Launcher para Premium', slug: '04-soporte/01-sobre-launchers/02-premium' },
-                { label: '1.3. Launchers no recomendados', slug: '04-soporte/01-sobre-launchers/03-no-recomendados' },
-                { label: '1.4. Cuenta Ely.by', slug: '04-soporte/01-sobre-launchers/04-cuenta-ely-by' },
+                { label: '1.0. Sobre Launchers', slug: '04-soporte/01-sobre-launchers/00-sobre-launchers' }, //LISTO
+                { label: '1.1. Launcher para no premium', slug: '04-soporte/01-sobre-launchers/01-no-premium' }, //LISTO
+                { label: '1.2. Launcher para Premium', slug: '04-soporte/01-sobre-launchers/02-premium' }, //LISTO
+                { label: '1.3. Launchers no recomendados', slug: '04-soporte/01-sobre-launchers/03-no-recomendados' }, //LISTO
+                { label: '1.4. Cuenta Ely.by', slug: '04-soporte/01-sobre-launchers/04-cuenta-ely-by' }, //LISTO
               ],
             },
             {
               label: '2. Paquete de mods y optimizaciones',
               items: [
-                { label: '2.1. Mods permitidos', slug: '04-soporte/02-paquete-de-mods/01-permitidos' },
-                { label: '2.2. Mods prohibidos', slug: '04-soporte/02-paquete-de-mods/02-prohibidos' },
+                { label: '2.0. Modpack', slug: '04-soporte/02-paquete-de-mods/00-sobre-modpack' }, //LISTO
+                { label: '2.1. Mods permitidos', slug: '04-soporte/02-paquete-de-mods/01-permitidos' }, //LISTO
+                { label: '2.2. Mods prohibidos', slug: '04-soporte/02-paquete-de-mods/02-prohibidos' }, //LISTO
                 {
                   label: '2.3. Instalación y configuración segura',
-                  slug: '04-soporte/02-paquete-de-mods/03-instalacion',
+                  slug: '04-soporte/02-paquete-de-mods/03-instalacion', //LISTO
                 },
               ],
             },
