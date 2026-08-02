@@ -14,9 +14,9 @@ Builtechraft is built around a friendly and structured server experience with:
 ## Quick links
 
 - Official website: https://builtechraft.tarquitet.com/
-- Join the server: [How to join](src/content/docs/01-guias/03-como-unirse-al-servidor/03-0-como-hacerlo.md)
-- Request whitelist: [Whitelist access](src/content/docs/01-guias/04-acceso-a-la-whitelist.md)
-- Support and FAQ: [Frequently asked questions](src/content/docs/04-soporte/00-preguntas-frecuentes.mdx)
+- Join the server: [How to join](/01-guias/03-como-unirse-al-servidor/03-0-como-hacerlo)
+- Request whitelist: [Whitelist access](/01-guias/04-acceso-a-la-whitelist)
+- Support and FAQ: [Frequently asked questions](/04-soporte/00-preguntas-frecuentes)
 - Español: [Versión en español](README.es.md)
 
 ## Development

@@ -14,9 +14,9 @@ Builtechraft se centra en una experiencia de servidor amable y organizada con:
 ## Enlaces rápidos
 
 - Sitio web oficial: https://builtechraft.tarquitet.com/
-- Unirse al servidor: [Cómo unirse](src/content/docs/01-guias/03-como-unirse-al-servidor/03-0-como-hacerlo.md)
-- Solicitar whitelist: [Acceso a la whitelist](src/content/docs/01-guias/04-acceso-a-la-whitelist.md)
-- Soporte y preguntas frecuentes: [Preguntas frecuentes](src/content/docs/04-soporte/00-preguntas-frecuentes.mdx)
+- Unirse al servidor: [Cómo unirse](/01-guias/03-como-unirse-al-servidor/03-0-como-hacerlo)
+- Solicitar whitelist: [Acceso a la whitelist](/01-guias/04-acceso-a-la-whitelist)
+- Soporte y preguntas frecuentes: [Preguntas frecuentes](/04-soporte/00-preguntas-frecuentes)
 - English: [English README](README.md)
 
 ## Desarrollo
