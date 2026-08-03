@@ -1,0 +1,72 @@
+---
+title: Cómo cambiar tu skin
+description: Cambia tu apariencia desde tu cuenta Premium o Ely.by.
+sidebar:
+  label: Cómo cambiar tu skin
+  order: 4
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Cambia tu apariencia desde tu cuenta Premium o Ely.by. El servidor cargará tu skin al iniciar sesión correctamente.
+
+<Aside type="caution" title="⚠️ Retiro Temporal del Mod de Skins">
+  El antiguo mod que nos permitía cambiar la apariencia mediante comandos en el chat ha sido **retirado temporalmente**.
+  Este sistema generaba problemas, ya que a veces fallaba al actualizar la apariencia y resultaba molesto para los
+  usuarios. Ahora dependemos de métodos mucho más directos y estables.
+</Aside>
+
+<iframe
+  src="https://www.youtube.com/embed/el-qz6di96A"
+  title="YouTube video player: Cómo cambiar tu skin"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+  class="w-full aspect-video rounded-lg shadow-md my-6"
+></iframe>
+
+## 🌐 Cambia tu skin
+
+Actualmente, el servidor lee tu apariencia directamente desde la base de datos externa que estés utilizando. Tienes varias alternativas muy cómodas para gestionar tu _skin_ sin tener que escribir comandos en el juego:
+
+### 1. Desde las Páginas Web Oficiales
+
+Es el método más directo y el que recomendamos:
+
+- **Jugadores Premium:** Inicia sesión en la página oficial de [Minecraft.net](https://www.minecraft.net/) y cambia tu apariencia allí. Al entrar al servidor, tu _skin_ se actualizará sola.
+- **Jugadores No-Premium:** Ve a [Ely.by](https://ely.by/), inicia sesión en tu cuenta y sube tu _skin_ o capa personalizada. El sistema Alternative Auth del servidor la leerá automáticamente.
+
+### 2. Desde la configuración de tu Launcher
+
+La mayoría de _launchers_ modernos (como Prism Launcher, XMCL o los oficiales) te permiten gestionar tus cuentas y subir tu archivo de _skin_ directamente desde sus menús de configuración antes de abrir el juego.
+
+### 3. Usando Mods Externos (Client-Side)
+
+Muchos jugadores prefieren instalar mods en sus propios clientes para gestionar su apariencia visual.
+
+- **Essentials:** Es un mod extremadamente popular entre los usuarios Premium que permite cambiar de _skins_ y cosméticos directamente desde un menú visual en el juego.
+- **Otros mods visuales:** Puedes instalar cualquier mod visual _client-side_ que te permita forzar la carga de tu _skin_, siempre y cuando sea compatible con tu versión de juego.
+
+## ️ Sistema de respaldo para modo offline
+
+Si en algún momento ocurre un fallo catastrófico con el sistema de seguridad de Ely.by y Mojang, y nos vemos obligados a colocar el servidor en **modo offline**, el antiguo mod de comandos regresará para salvarnos.
+
+Solo si se da esa situación de emergencia, podrás usar estos comandos:
+
+### 1. Copiar skins de otras cuentas
+
+- **`/skin set <Nombre>`** o **`/skin set Mojang <Nombre>`**: Te aplicará la apariencia exacta de la cuenta Premium que escribas.
+- **`/skin set by <Nombre>`**: Te aplicará la apariencia de un usuario registrado en Ely.by. _(Solo en Java)._
+
+### 2. Cargar skins desde una URL (Internet)
+
+Formato: `/skin set web classic ((URL))` o `/skin set web slim ((URL))`
+
+- Busca tu _skin_ en páginas como MinecraftSkins, súbela a un canal privado de Discord o a Imgur.
+- Haz clic derecho en la imagen ya subida, selecciona **"Copiar dirección de la imagen"** (asegúrate de que termine en `.png`).
+- Pega esa URL dentro de los dobles paréntesis en el comando.
+
+### 3. Limpiar o Reiniciar tu apariencia
+
+- **`/skin clear`**: Eliminará la apariencia actual y te dejará con la de Steve/Alex por defecto.
+- **`/skin reset`**: Restaurará tu apariencia a la versión original vinculada a tu cuenta.

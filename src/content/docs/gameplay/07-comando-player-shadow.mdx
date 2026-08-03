@@ -1,0 +1,394 @@
+---
+title: Jugador sombra
+description: Aprende a usar el comando shadow de Carpet Mod para crear copias exactas de jugadores y automatizar granjas con comportamiento idéntico.
+sidebar:
+  label: Jugador sombra
+  order: 7
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+# Comando /player shadow (Clonación de Jugadores)
+
+El comando `/player ... shadow` es una función avanzada de **Carpet Mod** que te permite crear una **copia exacta** (sombra) de un jugador existente en el mundo. Esta sombra imita todas las acciones del jugador original en tiempo real.
+
+<Aside type="tip" title="¿Qué es una sombra (shadow)?">
+  Una <strong>sombra</strong> es una entidad independiente que replica el comportamiento de un jugador. Mientras el
+  jugador original se mueve, ataca o usa items, la sombra hace exactamente lo mismo en otra ubicación.
+</Aside>
+
+## 🎭 ¿Para qué sirve shadow?
+
+El comando shadow es especialmente útil para:
+
+- **Pruebas de mecanismos:** Crea una copia de ti mismo para probar granjas desde múltiples ángulos simultáneamente.
+- **Granjas multi-jugador simuladas:** Simula la presencia de varios jugadores activando mecanismos que requieren múltiples personas.
+- **AFK con comportamiento específico:** La sombra puede replicar tus acciones exactas mientras estás ausente.
+- **Debugging de redstone:** Observa cómo interactúan múltiples jugadores con un mecanismo al mismo tiempo.
+
+## 📋 Sintaxis básica
+
+```bash
+/player <nombre> shadow
+```
+
+Esto crea una sombra del jugador especificado. La sombra aparecerá en la misma ubicación que el jugador original y comenzará a imitar sus acciones inmediatamente.
+
+## 🔍 Antes de usar shadow: casos donde NO lo necesitas
+
+Antes de aprender a usar shadow, es importante entender cuándo **NO** es necesario:
+
+### Caso 1: Granja simple de hierro
+
+**Situación:** Quieres una granja de hierro AFK que funcione mientras no estás.
+
+**Solución sin shadow:**
+
+```bash
+/player IronFarmer spawn
+/player IronFarmer move forward
+/player IronFarmer use continuous
+```
+
+**¿Por qué no necesitas shadow?**
+Un bot normal puede realizar acciones repetitivas simples. No necesitas replicar el comportamiento de un jugador específico.
+
+---
+
+### Caso 2: Carga de chunks estática
+
+**Situación:** Necesitas mantener un área cargada para una granja de cultivos.
+
+**Solución sin shadow:**
+
+```bash
+/player ChunkLoader spawn
+```
+
+**¿Por qué no necesitas shadow?**
+Solo necesitas presencia, no comportamiento. Un bot estático es suficiente.
+
+---
+
+### Caso 3: Bot que ataca mobs
+
+**Situación:** Quieres un bot que ataque zombies en una granja de XP.
+
+**Solución sin shadow:**
+
+```bash
+/player Hunter spawn
+/player Hunter attack continuous
+```
+
+**¿Por qué no necesitas shadow?**
+El comportamiento es genérico (atacar cualquier mob). No requiere replicar acciones específicas de un jugador.
+
+---
+
+### Caso 4: Bot que sigue a un jugador
+
+**Situación:** Quieres un bot que te siga a todos lados.
+
+**Solución sin shadow:**
+
+```bash
+/player Follower spawn
+```
+
+Luego el bot se queda donde lo invocaste, o lo mueves manualmente.
+
+**¿Por qué no necesitas shadow?**
+Seguir a un jugador es una acción simple que no requiere clonación de comportamiento.
+
+---
+
+## 🎯 Cuándo SÍ necesitas shadow
+
+Ahora veamos casos donde shadow es **la herramienta perfecta**:
+
+### Caso 1: Pruebas de mecanismos complejos
+
+**Situación:** Estás construyendo una granja que requiere que 3 jugadores estén en posiciones específicas al mismo tiempo para activar diferentes partes del mecanismo.
+
+**Solución CON shadow:**
+
+```bash
+# Tú estás en la posición 1 (controlando manualmente)
+# Creas sombras de ti mismo en las otras posiciones
+
+/player TuNombre shadow
+# Mueves la sombra a la posición 2
+/player TuNombre move forward 10
+
+/player TuNombre shadow
+# Mueves la segunda sombra a la posición 3
+/player TuNombre move right 10
+```
+
+**¿Por qué shadow es perfecto aquí?**
+Las sombras replican exactamente tus acciones (mirar, usar items, moverse), lo que te permite probar mecanismos complejos sin necesidad de otros jugadores reales.
+
+---
+
+### Caso 2: Granja que requiere comportamiento específico
+
+**Situación:** Tienes una granja que funciona cuando un jugador hace una secuencia específica de acciones: saltar, mirar abajo, usar item, moverse.
+
+**Solución CON shadow:**
+
+```bash
+# Primero configuras tus acciones como jugador real
+# Luego creas una sombra que replica ese comportamiento
+
+/player TuNombre shadow
+```
+
+La sombra replicará exactamente la secuencia que estás haciendo, permitiéndote automatizar comportamientos complejos.
+
+**¿Por qué shadow es perfecto aquí?**
+Un bot normal no puede replicar secuencias complejas de acciones. Shadow clona tu comportamiento exacto en tiempo real.
+
+---
+
+### Caso 3: Debugging desde múltiples perspectivas
+
+**Situación:** Estás probando un mecanismo de redstone y quieres observarlo desde 4 ángulos diferentes simultáneamente.
+
+**Solución CON shadow:**
+
+```bash
+# Tú observas desde el ángulo 1
+# Creas 3 sombras en diferentes posiciones
+
+/player TuNombre shadow
+/player TuNombre move forward 5
+/player TuNombre look north
+
+/player TuNombre shadow
+/player TuNombre move right 5
+/player TuNombre look east
+
+/player TuNombre shadow
+/player TuNombre move backward 5
+/player TuNombre look south
+```
+
+**¿Por qué shadow es perfecto aquí?**
+Las sombras se mueven y miran exactamente como tú, permitiéndote observar el mecanismo desde múltiples perspectivas sin perder tu posición original.
+
+---
+
+## 📊 Tabla comparativa: Bot normal vs Shadow
+
+| Característica     | Bot Normal                          | Shadow                                            |
+| ------------------ | ----------------------------------- | ------------------------------------------------- |
+| **Creación**       | `/player Nombre spawn`              | `/player Nombre shadow`                           |
+| **Comportamiento** | Acciones programadas manualmente    | Replica acciones del jugador original             |
+| **Independencia**  | Totalmente independiente            | Vinculado al jugador original                     |
+| **Uso ideal**      | Tareas repetitivas simples          | Replicación de comportamiento específico          |
+| **Control**        | Controlas cada acción con comandos  | Controlas al jugador original, la sombra sigue    |
+| **Eliminación**    | `/player Nombre kill`               | `/player Nombre kill` (elimina todas las sombras) |
+| **Reinicio**       | Debes reinvocar después de reinicio | Debes reinvocar después de reinicio               |
+
+## 🛠️ Ejemplos prácticos con shadow
+
+### 1. Crear una sombra básica
+
+```bash
+/player Steve shadow
+```
+
+Esto crea una sombra de Steve en su ubicación actual. La sombra replicará todas las acciones de Steve.
+
+### 2. Mover una sombra a otra ubicación
+
+```bash
+# Creas la sombra
+/player TuNombre shadow
+
+# Mueves la sombra (no a ti mismo)
+# La sombra se moverá 10 bloques hacia adelante
+/player TuNombre move forward 10
+```
+
+**Nota:** Cuando mueves al jugador original, todas sus sombras también se mueven de forma relativa.
+
+### 3. Múltiples sombras del mismo jugador
+
+```bash
+# Creas primera sombra
+/player TuNombre shadow
+
+# Creas segunda sombra
+/player TuNombre shadow
+
+# Creas tercera sombra
+/player TuNombre shadow
+```
+
+Puedes tener múltiples sombras del mismo jugador. Todas replicarán tus acciones simultáneamente.
+
+### 4. Sombra con acciones continuas
+
+```bash
+# El jugador original ataca continuamente
+# La sombra también atacará continuamente
+
+/player TuNombre shadow
+/player TuNombre attack continuous
+```
+
+Ambos (tú y tu sombra) atacarán al mismo tiempo.
+
+### 5. Eliminar sombras
+
+```bash
+# Elimina todas las sombras de este jugador
+/player TuNombre kill
+```
+
+Esto elimina al jugador Y todas sus sombras.
+
+## ⚠️ Reglas y limitaciones en Builtechraft
+
+<Aside type="danger" title="RESTRICCIONES CRÍTICAS">
+  El uso de shadow está sujeto a las mismas restricciones que los bots normales:
+
+**Nombres válidos:**
+Solo puedes crear sombras de jugadores con nombres válidos de Mojang (Premium). **No se permiten nombres offline.**
+
+**Ubicación:**
+Las sombras SOLO pueden crearse en áreas donde haya jugadores conectados. **Está prohibido crear sombras en lugares lejanos o deshabitados.**
+
+**Permisos:**
+Los jugadores en survival NO pueden usar selectores de entidades (@p, @e, etc.). Solo nombres específicos.
+
+**Cantidad:**
+No crees más sombras de las necesarias. Cada sombra consume recursos del servidor.
+
+</Aside>
+
+<Aside type="caution" title="Consideraciones técnicas">
+  **Rendimiento:**
+  Cada sombra es una entidad adicional. Múltiples sombras pueden causar lag si abusas de ellas.
+
+**Comportamiento vinculado:**
+Las sombras replican TODO lo que hace el jugador original. Si te mueves, ellas también. Si atacas, ellas también.
+
+**Eliminación al reiniciar:**
+Las sombras se eliminan cuando el servidor se reinicia. Debes volver a crearlas después de cada reinicio.
+
+**No pueden usar inventarios:**
+Las sombras no pueden acceder a cofres, hornos ni otros contenedores de forma autónoma.
+
+</Aside>
+
+## 🎯 Casos de uso recomendados
+
+### ✅ Permitido
+
+- Pruebas de mecanismos complejos que requieren múltiples jugadores
+- Debugging de redstone desde múltiples perspectivas
+- Granjas que requieren comportamiento específico replicado
+- Pruebas de construcción colaborativa simulada
+- Observación de mecanismos desde diferentes ángulos
+
+### ❌ No permitido
+
+- Crear ejércitos de sombras para PvP
+- Usar sombras para evadir límites de actividad del servidor
+- Crear sombras en áreas lejanas donde no hay jugadores
+- Usar sombras con nombres offline o inventados
+- Abusar de la cantidad de sombras causando lag
+- Usar selectores de entidades (@p, @e, etc.)
+
+## 💡 Consejos avanzados
+
+### Nombres descriptivos para sombras
+
+Si quieres identificar fácilmente tus sombras, usa nombres descriptivos válidos:
+
+```bash
+/player TestBot1 shadow
+/player TestBot2 shadow
+/player Observer shadow
+```
+
+### Control preciso de sombras
+
+Para mover sombras a posiciones específicas sin moverte tú:
+
+```bash
+# Creas la sombra
+/player TuNombre shadow
+
+# Usas coordenadas relativas para posicionar la sombra
+# La sombra se moverá 10 bloques al norte desde su posición actual
+```
+
+### Detener acciones de sombras
+
+Si quieres que el jugador original deje de hacer algo pero las sombras continúen:
+
+```bash
+# Primero creas la sombra
+/player TuNombre shadow
+
+# El jugador original deja de atacar
+# Pero la sombra continuará atacando (porque ya tenía la acción programada)
+```
+
+### Combinación con otros bots
+
+Puedes tener bots normales Y sombras al mismo tiempo:
+
+```bash
+# Bot normal para tarea simple
+/player IronFarmer spawn
+/player IronFarmer use continuous
+
+# Sombra para comportamiento complejo
+/player TuNombre shadow
+```
+
+## 🔧 Solución de problemas
+
+**La sombra no aparece:**
+
+- Verifica que el nombre sea válido de Mojang (Premium)
+- Confirma que hay jugadores conectados en el área
+- Asegúrate de tener permisos para usar el comando
+
+**La sombra no replica mis acciones:**
+
+- Las sombras solo replican acciones DESPUÉS de ser creadas
+- Si ya tenías acciones programadas antes de crear la sombra, no las replicará
+
+**Tengo demasiadas sombras y hay lag:**
+
+- Elimina sombras innecesarias con `/player Nombre kill`
+- Mantén solo las sombras que realmente necesitas
+
+**Las sombras desaparecen:**
+
+- Las sombras se eliminan cuando el servidor se reinicia
+- Vuelve a crearlas después de cada reinicio
+
+**Error al intentar usar @p o @e:**
+
+- Los jugadores en survival no tienen permisos para selectores
+- Usa solo nombres específicos de jugadores
+
+## 🎮 Flujo de trabajo recomendado
+
+1. **Planifica:** Decide si realmente necesitas shadow o si un bot normal es suficiente
+2. **Crea:** Usa `/player Nombre shadow` para crear la sombra
+3. **Posiciona:** Mueve la sombra a la ubicación deseada
+4. **Prueba:** Observa cómo la sombra replica tus acciones
+5. **Optimiza:** Elimina sombras innecesarias cuando termines
+6. **Documenta:** Recuerda qué sombras tienes activas para después del reinicio
+
+---
+
+¿Listo para clonar tu comportamiento? Usa shadow para probar mecanismos complejos y debuggear redstone como nunca antes. Si tienes dudas sobre casos específicos, consulta en nuestro [Discord](/getting-started/nuestro-discord).

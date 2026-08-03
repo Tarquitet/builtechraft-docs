@@ -1,0 +1,281 @@
+---
+title: Comando /player
+description: Aprende a usar bots y jugadores falsos con el comando /player de Carpet Mod para granjas AFK y carga de chunks.
+sidebar:
+  label: Comando /player
+  order: 6
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+En **Builtechraft** permitimos el uso de jugadores falsos (bots) para facilitar la creación de granjas técnicas y mantener chunks cargados. Todo esto es posible gracias al mod **Carpet** y su comando `/player`.
+
+<Aside type="tip" title="¿Qué es un fake player?">
+  Un **fake player** (jugador falso) es una entidad controlada por el servidor que simula ser un jugador real. Puede
+  moverse, mirar, romper bloques, hacer clic derecho y más, pero no puede chatear ni usar inventarios personalizados.
+</Aside>
+
+## 🤖 ¿Para qué sirve /player?
+
+Este comando es esencial para servidores técnicos como el nuestro porque permite:
+
+- **Granjas AFK automáticas:** Deja un bot en tu granja de hierro, oro o XP sin necesidad de estar conectado.
+- **Carga de chunks:** Mantén áreas específicas del mundo cargadas para que las granjas sigan funcionando aunque no haya jugadores cerca.
+- **Pruebas de redstone:** Simula la presencia de un jugador para activar mecanismos sensibles.
+- **Construcción colaborativa:** Un bot puede sostener items o realizar acciones repetitivas.
+
+## 📋 Sintaxis básica
+
+El comando `/player` tiene esta estructura general:
+
+```bash
+/player <nombre> <acción> [parámetros]
+```
+
+### Acciones principales
+
+| Acción      | Descripción                                                |
+| ----------- | ---------------------------------------------------------- |
+| `spawn`     | Invoca al bot en el mundo                                  |
+| `kill`      | Elimina al bot del mundo                                   |
+| `move`      | Mueve al bot en una dirección                              |
+| `look`      | Hace que el bot mire hacia un punto                        |
+| `use`       | Hace que el bot use su mano derecha (clic derecho)         |
+| `attack`    | Hace que el bot ataque (clic izquierdo)                    |
+| `jump`      | Hace que el bot salte                                      |
+| `sneak`     | Hace que el bot se agache                                  |
+| `sprint`    | Hace que el bot corra                                      |
+| `mount`     | Monta al bot sobre una entidad                             |
+| `dismount`  | Desmonta al bot                                            |
+| `swapHands` | Intercambia el item de la mano principal con la secundaria |
+| `drop`      | Suelta el item que tiene en la mano                        |
+| `dropStack` | Suelta todo el stack del item en la mano                   |
+| `dropAll`   | Suelta todos los items del inventario                      |
+| `stop`      | Detiene todas las acciones del bot                         |
+
+### Modificadores de acción
+
+Algunas acciones aceptan modificadores para controlar su comportamiento:
+
+- **`continuous`**: La acción se repite continuamente hasta que se detenga
+- **`once`**: La acción se ejecuta una sola vez (por defecto)
+- **`interval <ticks>`**: La acción se repite cada X ticks (20 ticks = 1 segundo)
+
+## 🛠️ Ejemplos prácticos
+
+### 1. Invocar un bot en tu ubicación
+
+```bash
+/player Steve spawn
+```
+
+Esto crea un bot llamado "Steve" exactamente donde estás parado.
+
+### 2. Mover el bot hacia adelante
+
+```bash
+/player Steve move forward
+```
+
+El bot avanzará en la dirección que esté mirando. Otras opciones: `backward`, `left`, `right`.
+
+### 3. Hacer que el bot mire hacia abajo
+
+```bash
+/player Steve look down
+```
+
+Otras opciones: `up`, `north`, `south`, `east`, `west`.
+
+### 4. Granja de hierro AFK completa
+
+```bash
+/player IronFarmer spawn
+/player IronFarmer move forward
+/player IronFarmer use continuous
+```
+
+Esto invoca el bot, lo mueve hacia adelante y lo deja haciendo clic derecho continuamente.
+
+### 5. Bot que ataca mobs continuamente
+
+```bash
+/player Hunter spawn
+/player Hunter attack continuous
+```
+
+El bot atacará continuamente a cualquier mob frente a él.
+
+### 6. Bot que suelta items automáticamente
+
+```bash
+/player Dropper spawn
+/player Dropper dropStack interval 20
+```
+
+El bot soltará el stack completo de su mano cada segundo.
+
+### 7. Detener todas las acciones del bot
+
+```bash
+/player Steve stop
+```
+
+### 8. Eliminar un bot
+
+```bash
+/player Steve kill
+```
+
+## ⚙️ Configuración para granjas
+
+### Bot estático para carga de chunks
+
+Si solo necesitas mantener un chunk cargado:
+
+```bash
+/player ChunkLoader spawn
+```
+
+El bot aparecerá y se quedará quieto. Mientras esté en el mundo, los chunks cercanos permanecerán cargados.
+
+### Bot que sigue a un jugador específico
+
+Para que un bot te siga, debes invocar el bot y luego montarlo sobre ti manualmente o usar comandos de movimiento:
+
+```bash
+/player Follower spawn
+```
+
+Luego puedes moverte y el bot se quedará donde lo invocaste, o usar comandos de movimiento para reubicarlo.
+
+## ⚠️ Reglas y limitaciones en Builtechraft
+
+<Aside type="danger" title="RESTRICCIONES IMPORTANTES">
+  El uso de fake players está estrictamente regulado en Builtechraft. **Violaciones resultarán en sanciones.**
+
+**Nombres válidos:**
+Solo puedes usar nombres de jugador válidos de Mojang (nombres Premium). **No se permiten nombres offline o inventados.**
+
+**Ubicación de bots:**
+Los bots SOLO pueden invocarse y usarse en áreas donde haya jugadores conectados en ese momento. **Está prohibido invocar bots en lugares lejanos o deshabitados.**
+
+**Permisos:**
+Los jugadores en modo survival NO tienen permisos para usar selectores de entidades (@p, @e, @a, etc.). Solo pueden usar nombres específicos de bots.
+
+</Aside>
+
+<Aside type="caution" title="Normas de uso">
+  Los fake players son una herramienta poderosa, pero deben usarse con responsabilidad:
+
+**No uses bots para evadir límites de actividad:** Si un bot está haciendo algo que normalmente requeriría que estés conectado, es probable que sea una violación de las reglas.
+**No abuses de la cantidad:** Un exceso de bots puede causar lag en el servidor. Mantén solo los necesarios para tus granjas.
+**Los Phantoms no atacan bots:** Esto es una ventaja técnica, no un exploit. Úsalo para granjas de membranas sin riesgo.
+**Los bots no pueden usar inventarios personalizados:** No pueden acceder a cofres, hornos ni otros contenedores de forma autónoma.
+**Los bots se eliminan al reiniciar:** Después de cada reinicio del servidor, debes volver a invocar tus bots.
+
+  </Aside>
+
+## 🎯 Casos de uso recomendados
+
+### ✅ Permitido
+
+- Granjas de hierro con un bot AFK cerca de donde estás jugando
+- Mantener chunks cargados para granjas de cultivos mientras estás en el área
+- Pruebas de mecanismos de redstone en tu base
+- Granjas de XP con bots atacando mobs en zonas controladas
+- Bots que siguen a jugadores en el spawn o áreas comunales
+
+### ❌ No permitido
+
+- Usar bots para minar bloques automáticamente (eso es macro/auto-minado)
+- Crear ejércitos de bots para PvP
+- Usar bots para evadir el sistema de actividad del servidor
+- Spawnear bots en áreas lejanas donde no hay jugadores conectados
+- Usar nombres offline o inventados para los bots
+- Invocar bots en territorios de otros jugadores sin permiso
+- Usar selectores de entidades (@p, @e, etc.) - solo nombres específicos
+
+## 💡 Consejos avanzados
+
+### Nombres descriptivos válidos
+
+Usa nombres que sean válidos de Mojang y que indiquen la función del bot:
+
+```bash
+/player IronFarmer spawn
+/player GoldGrinder spawn
+/player ChunkLoaderNorth spawn
+```
+
+**Nombres NO válidos:**
+
+- Nombres con espacios: `Iron Farmer` ❌
+- Nombres con caracteres especiales: `Iron_Farmer!` ❌
+- Nombres demasiado largos (más de 16 caracteres) ❌
+
+### Posicionamiento preciso
+
+Si necesitas que el bot aparezca en coordenadas específicas, primero ve a ese lugar y luego usa:
+
+```bash
+/player Steve spawn ~ ~ ~
+```
+
+Las tildes `~` representan tu posición actual.
+
+### Control de acciones continuas
+
+Para detener una acción continua específica:
+
+```bash
+/player Steve move stop
+/player Steve attack stop
+```
+
+O detén todas las acciones de golpe:
+
+```bash
+/player Steve stop
+```
+
+### Combinación de acciones
+
+Puedes encadenar múltiples acciones:
+
+```bash
+/player Worker spawn
+/player Worker move forward
+/player Worker use interval 40
+/player Worker jump interval 60
+```
+
+Esto crea un bot que se mueve hacia adelante, usa su mano cada 2 segundos y salta cada 3 segundos.
+
+## 🔧 Solución de problemas
+
+**El bot no aparece:**
+
+- Verifica que tengas permisos para usar el comando
+- Asegúrate de que el nombre sea válido de Mojang (Premium)
+- Confirma que hay jugadores conectados en el área
+
+**El bot no se mueve:**
+
+- Usa `move forward` en lugar de coordenadas absolutas
+- Verifica que el bot no esté atrapado en bloques
+- Asegúrate de que el bot tenga espacio para moverse
+
+**El bot desaparece:**
+
+- Los bots se eliminan si el servidor se reinicia
+- Vuelve a invocarlos con `spawn` después de cada reinicio
+
+**Error de permisos:**
+
+- Los jugadores en survival no pueden usar selectores (@p, @e, etc.)
+- Solo puedes controlar bots por su nombre específico
+
+---
+
+¿Listo para automatizar tus granjas? Invoca tu primer bot y empieza a construir mecanismos más eficientes. Si tienes dudas sobre casos específicos, consulta en nuestro [Discord](/getting-started/nuestro-discord).
