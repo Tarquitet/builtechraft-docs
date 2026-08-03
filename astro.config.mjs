@@ -9,101 +9,47 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Builtechraft Wiki',
+      credits: true, // ← Footer "Built with Starlight" como PaperMC
+      lastUpdated: true, // ← "Last updated: <fecha>" abajo (usa el historial de git)
+      editLink: {
+        baseUrl: 'https://github.com/TU_USUARIO/builtechraft-docs/edit/main/', // ← Botón "Edit page"
+      },
       logo: {
         src: './src/assets/logo.png',
       },
       description: 'Documentación y Wiki para Builtechraft SMP.',
       social: [
         { icon: 'discord', label: 'Discord', href: 'https://discord.gg/4KzRH5DPzx' },
-        { icon: 'github', label: 'GitHub', href: 'https://github.com/tarquitet' },
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/Tarquitet/builtechraft-docs.git' },
       ],
       sidebar: [
         {
           label: 'Inicio',
-          link: '/', //LISTO
+          link: '/',
         },
         {
           label: '01. GUÍAS',
-          items: [
-            { label: '1. ¿Qué es Builtechraft?', slug: '01-guias/01-que-es-builtechraft' }, //LISTO
-            { label: '2. Nuestro Discord', slug: '01-guias/02-nuestro-discord' }, //LISTO
-            {
-              label: '3. Cómo unirse al servidor',
-              items: [
-                { label: '3.0. Como Unirse', slug: '01-guias/03-como-unirse-al-servidor/03-0-como-hacerlo' }, //LISTO
-                { label: '3.1. Java', slug: '01-guias/03-como-unirse-al-servidor/03-1-java' }, //LISTO
-                { label: '3.2. Bedrock', slug: '01-guias/03-como-unirse-al-servidor/03-2-bedrock' }, //LISTO
-              ],
-            },
-            { label: '4. Acceso a la Whitelist', slug: '01-guias/04-acceso-a-la-whitelist' }, //LISTO
-            { label: '5. Registro en el servidor', slug: '01-guias/05-registro-en-el-servidor' }, //LISTO
-          ],
+          items: [{ autogenerate: { directory: '01-guias' } }],
         },
         {
           label: '02. EQUIPO Y STAFF',
-          items: [
-            { label: '1. Equipo colaborador', slug: '02-equipo-y-staff/01-equipo-colaborador' }, //LISTO
-            { label: '2. Fundador del proyecto', slug: '02-equipo-y-staff/02-fundador-del-proyecto' }, //LISTO
-          ],
+          items: [{ autogenerate: { directory: '02-equipo-y-staff' } }],
         },
         {
           label: '03. CARACTERÍSTICAS',
-          items: [
-            { label: '1. Teletransporte con brújulas y magnetitas', slug: '03-caracteristicas/01-lodestone-tp' }, //LISTO
-            { label: '2. Cómo sentarse y montar', slug: '03-caracteristicas/02-como-sentar-montar' }, //LISTO
-            { label: '3. Cómo cambiar tu skin', slug: '03-caracteristicas/03-como-cambiar-tu-skin' }, //LISTO
-            { label: '4. Waypoints y mapa web', slug: '03-caracteristicas/04-waypoints-y-mapa-web' }, //LISTO
-            { label: '5. Cabezas decorativas customizadas', slug: '03-caracteristicas/05-cabezas-decorativas' }, //LISTO
-          ],
+          items: [{ autogenerate: { directory: '03-caracteristicas' } }],
         },
         {
           label: '04. SOPORTE',
-          items: [
-            { label: '0. Preguntas Frecuentes (FAQ)', slug: '04-soporte/00-preguntas-frecuentes' }, //LISTO
-            {
-              label: '1. Sobre Launchers',
-              items: [
-                { label: '1.0. Sobre Launchers', slug: '04-soporte/01-sobre-launchers/00-sobre-launchers' }, //LISTO
-                { label: '1.1. Launcher para no premium', slug: '04-soporte/01-sobre-launchers/01-no-premium' }, //LISTO
-                { label: '1.2. Launcher para Premium', slug: '04-soporte/01-sobre-launchers/02-premium' }, //LISTO
-                { label: '1.3. Launchers no recomendados', slug: '04-soporte/01-sobre-launchers/03-no-recomendados' }, //LISTO
-                { label: '1.4. Cuenta Ely.by', slug: '04-soporte/01-sobre-launchers/04-cuenta-ely-by' }, //LISTO
-              ],
-            },
-            {
-              label: '2. Paquete de mods y optimizaciones',
-              items: [
-                { label: '2.0. Modpack', slug: '04-soporte/02-paquete-de-mods/00-sobre-modpack' }, //LISTO
-                { label: '2.1. Mods permitidos', slug: '04-soporte/02-paquete-de-mods/01-permitidos' }, //LISTO
-                { label: '2.2. Mods prohibidos', slug: '04-soporte/02-paquete-de-mods/02-prohibidos' }, //LISTO
-                {
-                  label: '2.3. Instalación y configuración segura',
-                  slug: '04-soporte/02-paquete-de-mods/03-instalacion', //LISTO
-                },
-              ],
-            },
-            {
-              label: '3. ¿Qué mods usa el servidor?',
-              items: [
-                { label: '3.0. Que mods usamos', slug: '04-soporte/03-que-mods-usa/00-que-usa-servidor' }, //LISTO
-                { label: '3.1. Lista de mods y datapacks', slug: '04-soporte/03-que-mods-usa/01-lista-mods' }, //LISTO
-              ],
-            },
-            { label: '4. Planes a futuro', slug: '04-soporte/04-planes-a-futuro' }, //LISTO
-          ],
+          items: [{ autogenerate: { directory: '04-soporte' } }],
         },
         {
           label: '05. HISTORIA DEL SERVIDOR',
-          items: [
-            { label: '1. Los Inicios: Arte e Ingeniería', slug: '05-historia/01-los-inicios' }, //LISTO
-            { label: '2. La evolución', slug: '05-historia/02-la-evolucion' }, //LISTO
-            { label: '3. Replicando la seguridad Premium', slug: '05-historia/03-replicando-seguridad' }, //LISTO
-            { label: '4. Un proyecto sin rendirse', slug: '05-historia/04-un-proyecto-sin-rendirse' }, //LISTO
-          ],
+          items: [{ autogenerate: { directory: '05-historia' } }],
         },
         {
           label: '06. EXTRAS',
-          items: [{ label: '0. Inspiraciones', slug: '06-extras/00-inspiraciones' }], //LISTO
+          items: [{ autogenerate: { directory: '06-extras' } }],
         },
       ],
       customCss: ['./src/styles/global.css'],

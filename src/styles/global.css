@@ -120,3 +120,12 @@ header .site-title {
   color: #ffedd5;
   text-decoration: underline;
 }
+
+/* Sidebar compacta estilo PaperMC */
+.sidebar-pane {
+  font-size: 0.8125rem;
+}
+.sidebar-pane a,
+.sidebar-pane summary {
+  padding-block: 0.15rem;
+}
