@@ -9,10 +9,10 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Builtechraft Wiki',
-      credits: true, // ← Footer "Built with Starlight" como PaperMC
-      lastUpdated: true, // ← "Last updated: <fecha>" abajo (usa el historial de git)
+      credits: true,
+      lastUpdated: true,
       editLink: {
-        baseUrl: 'https://github.com/TU_USUARIO/builtechraft-docs/edit/main/', // ← Botón "Edit page"
+        baseUrl: 'https://github.com/TU_USUARIO/builtechraft-docs/edit/main/',
       },
       logo: {
         src: './src/assets/logo.png',
